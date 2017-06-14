@@ -4,7 +4,7 @@ class User
   include Mongoid::Document
   include Mongoid::Document::Taggable
   field :name
-  belongs_to :organization
+  belongs_to :organization, optional: true
 end
 
 class Organization
