@@ -1,7 +1,9 @@
 require 'mongoid'
 require 'mongoid-simple-tags'
 
-Mongoid.load!("mongoid.yml", :test)
+Mongoid.configure do |config|
+  config.connect_to('mongoid-simple-tags')
+end
 
 RSpec.configure do |config|
   config.after(:each) do
