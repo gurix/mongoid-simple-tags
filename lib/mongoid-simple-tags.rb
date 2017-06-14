@@ -53,7 +53,7 @@ module Mongoid
           tags = self
           tags = tags.where(scope) if scope.present?
 
-          results = tags.map_reduce(map, reduce).out(inline: true)
+          results = tags.map_reduce(map, reduce).out(inline: 1)
           results.to_a.map!{ |item| { :name => item['_id'], :count => item['value'].to_i } }
         end
 
